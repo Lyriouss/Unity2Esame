@@ -1,26 +1,34 @@
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-    private int matVariants = 3;
-    private int maxMats = 5;
-    public int[] currentMats;
+    [Min(3)] public int maxMat1 = 5;
+    public int mat1;
+    [Min(3)] public int maxMat2 = 5;
+    public int mat2;
+    [Min(3)] public int maxMat3 = 5;
+    public int mat3;
+
+    public float energyBar;
+    public float energyLimit;
+    [SerializeField] private float recoveryRate;
+    private bool needsEnergy = false;
 
     [Header("Object Crafting")]
     //array used for reference for possible craftable object prefabs
     [SerializeField] private GameObject[] objects;
-    //first array is used to identify which object we need materials from
-    //second array holds the amount of materials needed for crafting
-    [SerializeField] private int[][] objectMats;
-
+    public ObjectCraftingScriptable[] orders;
     public int randomOrder;
-    public List<int> currentOrderMats = new List<int>();
 
     private void OnEnable()
     {
         AIController.onOrderRequest += GenerateRandomOrder;
+        AIController.onMatsChange1 += UpdateMaterials1;
+        AIController.onMatsChange2 += UpdateMaterials2;
+        AIController.onMatsChange3 += UpdateMaterials3;
+        AIController.onRestingStart += StartResting;
+        AIController.onRestingEnd += StopResting;
     }
 
     private void OnDisable()
@@ -30,24 +38,38 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        List<int> matsList = new List<int>();
-        for (int i = 0; i < matVariants; i++)
+        mat1 = maxMat1;
+        mat2 = maxMat2;
+        mat3 = maxMat3;
+        energyBar = energyLimit;
+    }
+
+    private void Update()
+    {
+        energyBar = Mathf.Clamp(energyBar, 0f, energyLimit);
+        
+        if (!needsEnergy)
         {
-            matsList.Add(i);
-            matsList[i] = maxMats;
+            energyBar -= Time.deltaTime;
         }
-        currentMats = matsList.ToArray();
+        else
+        {
+            energyBar += recoveryRate * Time.deltaTime;
+        }
     }
 
     private void GenerateRandomOrder()
     {
-        currentOrderMats.Clear();
-
-        randomOrder = Random.Range(0, objects.Length);
-
-        foreach (int mat in objectMats[randomOrder])
-        {
-            currentOrderMats.Add(mat);
-        }
+        randomOrder = Random.Range(0, orders.Length);
     }
+
+    private void UpdateMaterials1(int changeAmount) => mat1 += changeAmount;
+    
+    private void UpdateMaterials2(int changeAmount) => mat2 += changeAmount;
+    
+    private void UpdateMaterials3(int changeAmount) => mat3 += changeAmount;
+
+    private void StartResting() => needsEnergy = true;
+    
+    private void StopResting() => needsEnergy = false;
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4883472131373495925}
   - component: {fileID: 1274350026660558047}
   - component: {fileID: 2095971699156190254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 481592070709981092}
   - component: {fileID: 1472836004777871252}
   - component: {fileID: 883920284378555379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 8878702494029674993}
   - component: {fileID: 6856689529101460307}
   - component: {fileID: 2714266946723068637}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001099440881659677}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 4945999426186222074}
   - component: {fileID: 9193103488202710357}
   - component: {fileID: 865507204618611716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 5914070044309569602}
   - component: {fileID: 66745801830208300}
   - component: {fileID: 5042761090743238483}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 4480789044676939515}
   - component: {fileID: 8920265466478005782}
   - component: {fileID: 6256434321236804714}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 9076939060549730043}
   - component: {fileID: 6470395719120094353}
   - component: {fileID: 4176921778251727129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,8 +769,8 @@ Light:
   serializedVersion: 12
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
-  m_Range: 10
+  m_Intensity: 30
+  m_Range: 15
   m_SpotAngle: 30.675987
   m_InnerSpotAngle: 13.851191
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -864,7 +864,7 @@ GameObject:
   - component: {fileID: 3721404538566928402}
   - component: {fileID: 8092122088890275984}
   - component: {fileID: 6986836672584208539}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

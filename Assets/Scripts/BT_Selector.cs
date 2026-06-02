@@ -11,7 +11,7 @@ public class BT_Selector : BT_Node
     {
         Status childStatus = children[currentChildIndex].Process();
 
-        Debug.Log(children[currentChildIndex].nodeName + " : " + childStatus);
+        //Debug.Log(children[currentChildIndex].nodeName + " : " + childStatus);
 
         if (childStatus == Status.Running) return childStatus;
 

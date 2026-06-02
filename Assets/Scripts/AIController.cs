@@ -32,7 +32,7 @@ public class AIController : MonoBehaviour
 
     private Status treeStatus = Status.Running;
 
-    public static event Action onOrderRequest, onRestingStart, onRestingEnd;
+    public static event Action onOrderRequest, onObjectCrafting, onCraftingFinished, onDeliverObject, onRestingStart, onRestingEnd;
     public static event Action<int> onMatsChange1, onMatsChange2, onMatsChange3;
 
     private void Awake()
@@ -228,6 +228,8 @@ public class AIController : MonoBehaviour
     
     private Status CraftObject()
     {
+        onObjectCrafting?.Invoke();
+        
         return WaitProcess();
     }
 
@@ -238,13 +240,14 @@ public class AIController : MonoBehaviour
         if (timer < waitTime)
             return Status.Running;
 
+        onCraftingFinished?.Invoke();
         timer = 0f;
         return Status.Success;
     }
 
     private Status DeliverObject()
     {
-        return GoTo(deliverStation.position);
+        return GoToAction(deliverStation.position, onDeliverObject);
     }
 
     private Status HasEnergy() => gm.energyBar <= 0f ? Status.Failure : Status.Success;

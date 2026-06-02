@@ -11,7 +11,7 @@ public class BT_Sequence : BT_Node
     {
         Status childStatus = children[currentChildIndex].Process();
         
-        Debug.Log(children[currentChildIndex].nodeName + " : " + childStatus);
+        //Debug.Log(children[currentChildIndex].nodeName + " : " + childStatus);
         
         if (childStatus == Status.Running) return Status.Running;
         

@@ -1029,9 +1029,6 @@ MonoBehaviour:
   mat2: 0
   maxMat3: 5
   mat3: 0
-  energyBar: 0
-  energyLimit: 50
-  recoveryRate: 5
   objects:
   - {fileID: 26062604}
   - {fileID: 705127084}
@@ -8366,8 +8363,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc2967a093275148a7b2471e40dd5cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIController
+  craftingWaitTime: 3
+  energyLimit: 50
+  energyBar: 0
+  recoveryRate: 5
   stoppingDistance: 1.5
-  waitTime: 3
   start: {fileID: 393742143}
   collectMats:
   - {fileID: 820126767}
@@ -9098,7 +9098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 49.99994, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: -1399.9999, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736207369

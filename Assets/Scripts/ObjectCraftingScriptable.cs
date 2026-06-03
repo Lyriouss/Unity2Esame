@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//Scriptable object for storing what materials are needed for crafting an object
 [CreateAssetMenu(fileName = "ObjectCrafting", menuName = "ScriptableObjects/ObjectCraftingScriptable", order = 1)]
 public class ObjectCraftingScriptable : ScriptableObject
 {
